@@ -242,7 +242,7 @@ const Navigation = ({ theme, toggleTheme }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <NavLink to={`item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+                <NavLink to={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
                 theme={theme}>
                   {item}
                 </NavLink>
