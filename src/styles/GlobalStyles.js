@@ -10,13 +10,17 @@ const GlobalStyles = createGlobalStyle`
     
     /* Light Theme */
     --background: var(--pepsi-light);
-    --text: #333;
+    --text: #0A1929;
     --card-bg: white;
     --nav-bg: rgba(255, 255, 255, 0.95);
     --shadow: rgba(0, 75, 147, 0.1);
+    --newsletter-color: var(--pepsi-blue);
+    --button: var(--pepsi-red);
+    --text-highlight: var(--pepsi-blue);
+    --link-color: var(--pepsi-red);
     
     /* Transitions */
-    --transition: all 0.3s ease-in-out;
+    --transition: all 0.2s ease-in-out;
   }
 
   [data-theme='dark'] {
@@ -25,6 +29,10 @@ const GlobalStyles = createGlobalStyle`
     --card-bg: #1A2837;
     --nav-bg: rgba(10, 25, 41, 0.95);
     --shadow: rgba(0, 0, 0, 0.3);
+    --newsletter-color: var(--pepsi-red);
+    --button: var(--pepsi-blue);
+    --text-highlight: var(--pepsi-red);
+    --link-color: var(--pepsi-blue);
   }
 
   * {
@@ -61,3 +69,6 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default GlobalStyles;
+
+/*  background: var(--pepsi-blue);
+  color: white;*/

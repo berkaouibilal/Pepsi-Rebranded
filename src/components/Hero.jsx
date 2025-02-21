@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import splitSring from '../utils/splitString';
+import { Link } from 'react-router-dom';
 
 const HeroSection = styled.section`
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  background: linear-gradient(135deg, var(--pepsi-red) 0%, var(--background) 45%, var(--pepsi-blue) 100%);
+  color: var(--text);
   overflow: hidden;
-  background: linear-gradient(135deg, var(--pepsi-blue) 0%, var(--pepsi-dark) 100%);
-  color: white;
   padding: 2rem;
+  padding-top: 6.8rem;
 `;
 
 const HeroContent = styled.div`
@@ -47,29 +49,42 @@ const floatingAnimation = {
   transition: {
     duration: 6,
     repeat: Infinity,
-    ease: "easeInOut"
-  }
+    ease: "easeInOut",
+    delay: 1
+  },
 };
 
 const products = [
   {
-    src: "https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-classic-hero.png",
+    src: "https://www.pepsi.com/s3fs-public/2024-07/44341_Titan_Pep_Can_12oz_FR.png",
     alt: "Pepsi Classic",
     style: { width: "300px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }
   },
   {
-    src: "https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-zero-hero.png",
+    src: "https://www.pepsi.com/assets/images/cans/can-2.webp",
     alt: "Pepsi Zero",
     style: { width: "250px", position: "absolute", top: "30%", left: "20%", transform: "translate(-50%, -50%)" }
   },
   {
-    src: "https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-cherry-hero.png",
+    src: "https://www.pepsi.com/s3fs-public/2024-07/44347_Titan_PWC_Can_12oz_FR.png",
     alt: "Pepsi Cherry",
     style: { width: "250px", position: "absolute", top: "70%", left: "80%", transform: "translate(-50%, -50%)" }
   }
 ];
 
+const headingFirst = "Refresh Your World";
+const headingSecond = "With Pepsi";
+const paragraph = "Experience the bold, refreshing taste that's been a global icon for generations. Every sip is a celebration of what's next.";
+
+const charVariants = {
+  hidden: {opacity:0},
+  visible: {opacity:1},
+}
+
 const Hero = () => {
+  const headingFirstChars = splitSring(headingFirst);
+  const headingSecondChars = splitSring(headingSecond);
+  const paragraphChars = splitSring(paragraph);
   return (
     <HeroSection>
       <motion.div
@@ -90,18 +105,34 @@ const Hero = () => {
                 lineHeight: 1.1
               }}
             >
-              Refresh Your World
+              {headingFirstChars.map(hfc=>(
+                <motion.span key={hfc}
+                  variants={charVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{duration: 2.8}}>
+                  {hfc}
+                </motion.span>
+              ))}
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
                 style={{ 
                   display: "block",
-                  color: "var(--pepsi-red)",
+                  color: "var(--text-highlight)",
                   fontSize: "clamp(2rem, 4vw, 3.5rem)"
                 }}
               >
-                With Pepsi
+                {headingSecondChars.map(hsc=>(
+                  <motion.span key={hsc}
+                    variants={charVariants}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{duration: 2.8}}>
+                    {hsc}
+                  </motion.span>
+                ))}
               </motion.span>
             </motion.h1>
             <motion.p
@@ -115,7 +146,15 @@ const Hero = () => {
                 opacity: 0.9
               }}
             >
-              Experience the bold, refreshing taste that's been a global icon for generations. Every sip is a celebration of what's next.
+              {paragraphChars.map(pc=>(
+                <motion.span key={pc}
+                  variants={charVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{duration: 2.8}}>
+                  {pc}
+                </motion.span>
+              ))}
             </motion.p>
             <motion.button
               initial={{ opacity: 0, scale: 0.5 }}
@@ -124,7 +163,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ delay: 1, duration: 0.3 }}
               style={{
-                background: "var(--pepsi-red)",
+                background: "var(--button)",
                 color: "white",
                 padding: "1rem 2rem",
                 borderRadius: "50px",
@@ -132,7 +171,7 @@ const Hero = () => {
                 fontWeight: "bold"
               }}
             >
-              Explore Products
+              <Link to='/products'>Explore Our Products</Link>
             </motion.button>
           </TextContent>
           <ProductDisplay>
@@ -146,7 +185,8 @@ const Hero = () => {
                 animate={{ 
                   opacity: 1, 
                   scale: 1,
-                  ...floatingAnimation
+                  ...floatingAnimation,
+                  x: index % 2 === 0 ? 0 : -20
                 }}
                 transition={{
                   delay: index * 0.2,

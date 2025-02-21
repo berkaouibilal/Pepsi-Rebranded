@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const SocialSection = styled.section`
-  background: white;
   padding: 4rem 2rem;
   text-align: center;
 `;
@@ -20,7 +19,7 @@ const SocialGrid = styled.div`
 `;
 
 const SocialLink = styled(motion.a)`
-  color: var(--pepsi-blue);
+  color: var(--link-color);
   font-size: 2rem;
   transition: var(--transition);
 
@@ -30,10 +29,9 @@ const SocialLink = styled(motion.a)`
 `;
 
 const socialLinks = [
-  { icon: FaFacebook, url: 'https://facebook.com/pepsi' },
-  { icon: FaTwitter, url: 'https://twitter.com/pepsi' },
-  { icon: FaInstagram, url: 'https://instagram.com/pepsi' },
-  { icon: FaTiktok, url: 'https://tiktok.com/@pepsi' }
+  { icon: FaFacebook, url: 'https://facebook.com/berkaouibilaldev' },
+  { icon: FaTwitter, url: 'https://x.com/thatbilal' },
+  { icon: FaGithub, url: 'https://github.com/berkaouibilal' }
 ];
 
 const SocialMedia = () => {
@@ -46,10 +44,10 @@ const SocialMedia = () => {
         viewport={{ once: true }}
       >
         <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-          Connect With Us
+          Liked the project?
         </h2>
         <p style={{ fontSize: '1.2rem' }}>
-          Follow us on social media for the latest updates
+          Contact me on social media to discuss your project.
         </p>
         <SocialGrid>
           {socialLinks.map((social, index) => (

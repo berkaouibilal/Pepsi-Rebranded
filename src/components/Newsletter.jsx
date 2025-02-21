@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 const NewsletterSection = styled.section`
-  background: var(--pepsi-blue);
-  color: white;
+
   padding: 4rem 2rem;
   text-align: center;
 `;
@@ -15,7 +14,6 @@ const NewsletterForm = styled.form`
   display: flex;
   gap: 1rem;
   padding: 0 1rem;
-
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -39,9 +37,10 @@ const SubmitButton = styled(motion.button)`
   transition: var(--transition);
 
   &:hover {
-    background: #ff1a1a;
+    background: var(--pepsi-blue);
   }
 `;
+
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
@@ -62,11 +61,11 @@ const Newsletter = () => {
         viewport={{ once: true }}
       >
         <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-          Stay Refreshed
+        Stay <span style={{color: 'var(--newsletter-color)'}}>Refreshed</span>
         </h2>
-        <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
-          Subscribe to our newsletter for exclusive offers and updates
-        </p>
+        <motion.p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
+        Subscribe to our newsletter for exclusive offers and updates
+        </motion.p>
         <NewsletterForm onSubmit={handleSubmit}>
           <Input
             type="email"
@@ -76,6 +75,7 @@ const Newsletter = () => {
             required
           />
           <SubmitButton
+            style={{backgroundColor: 'var(--newsletter-color)'}}
             type="submit"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
