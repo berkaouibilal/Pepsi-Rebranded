@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
     --button: var(--pepsi-red);
     --text-highlight: var(--pepsi-blue);
     --link-color: var(--pepsi-red);
+    --button-hover: var(--pepsi-blue);
     
     /* Transitions */
     --transition: all 0.2s ease-in-out;
@@ -33,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
     --button: var(--pepsi-blue);
     --text-highlight: var(--pepsi-red);
     --link-color: var(--pepsi-blue);
+    --button-hover: var(--pepsi-red);
   }
 
   * {
@@ -69,6 +71,3 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default GlobalStyles;
-
-/*  background: var(--pepsi-blue);
-  color: white;*/

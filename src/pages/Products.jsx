@@ -34,8 +34,8 @@ const ProductImage = styled.div`
 
   img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    bottom: 10%;
+    right: 22%;
     transform: translate(-50%, -50%);
     width: 60%;
     transition: var(--transition);
@@ -103,7 +103,7 @@ const products = [
   {
     id: 1,
     name: 'Pepsi Classic',
-    image: 'https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-classic.png',
+    image: 'https://www.pepsi.co.uk/prod/s3fs-public/2024-02/REG.png',
     description: 'The iconic taste that started it all',
     badge: 'classic',
     nutrition: {
@@ -114,9 +114,9 @@ const products = [
   },
   {
     id: 2,
-    name: 'Pepsi Zero Sugar',
-    image: 'https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-zero.png',
-    description: 'Zero sugar, maximum taste',
+    name: 'Pepsi Diet',
+    image: 'https://www.pepsi.co.uk/prod/s3fs-public/2024-02/_DIET_RGB.png',
+    description: 'No Sugar, no calories',
     badge: 'new',
     nutrition: {
       calories: '0',
@@ -126,20 +126,20 @@ const products = [
   },
   {
     id: 3,
-    name: 'Pepsi Wild Cherry',
-    image: 'https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-cherry.png',
-    description: 'A wild cherry twist on classic Pepsi',
+    name: 'Pepsi Max Cherry',
+    image: 'https://www.pepsi.co.uk/prod/s3fs-public/2024-02/CHERRY.png',
+    description: 'Great Pepsi MAX taste with a refreshing Cherry twist',
     badge: 'featured',
     nutrition: {
-      calories: '160',
-      sugar: '42g',
-      caffeine: '38mg'
+      calories: '1',
+      sugar: '0g',
+      caffeine:'43mg'
     }
   },
   {
     id: 4,
     name: 'Pepsi Max',
-    image: 'https://raw.githubusercontent.com/pepsi-marketing/brand-assets/main/products/pepsi-max.png',
+    image: 'https://www.pepsi.co.uk/prod/s3fs-public/2024-02/_MAX.png',
     description: 'Maximum taste, no sugar',
     badge: 'new',
     nutrition: {
@@ -196,7 +196,7 @@ const Products = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, scale: 1.05 }}
               onClick={() => handleProductClick(product)}
               onMouseEnter={() => addBubble(product.id)}
             >
@@ -205,9 +205,9 @@ const Products = () => {
                   src={product.image}
                   alt={product.name}
                   whileHover={{ 
-                    scale: 1.1,
+                    scale: 1.5,
                     rotate: [0, -5, 5, 0],
-                    transition: { duration: 0.5 }
+                    transition: { duration: 0.2 }
                   }}
                 />
                 {bubbles.map(bubble => (
@@ -224,7 +224,7 @@ const Products = () => {
                     }}
                     transition={{
                       duration: 2,
-                      ease: "easeOut"
+                      ease: "easeInOut"
                     }}
                   />
                 ))}

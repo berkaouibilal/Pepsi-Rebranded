@@ -9,6 +9,8 @@ import ProductShowcase from './components/ProductShowcase';
 import Newsletter from './components/Newsletter';
 import SocialMedia from './components/SocialMedia';
 import Products from './pages/Products';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -52,6 +54,8 @@ function App() {
               }
             />
             <Route path="/products" element={<Products />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
       </AppContainer>

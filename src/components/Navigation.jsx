@@ -210,7 +210,7 @@ const Navigation = ({ theme, toggleTheme }) => {
     }
   };
 
-  const menuItems = ['Products', 'About', 'Contact'];
+  const menuItems = ['Home','Products', 'About', 'Contact'];
 
   return (
     <Nav theme={theme}>
@@ -312,7 +312,7 @@ const Navigation = ({ theme, toggleTheme }) => {
             {menuItems.map((item, index) => (
               <MobileNavLink
                 key={item}
-                to={`/${item.toLowerCase()}`}
+                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                 theme={theme}
                 onClick={() => setIsMobileMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
